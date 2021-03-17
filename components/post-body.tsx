@@ -1,17 +1,13 @@
-import markdownStyles from './markdown-styles.module.css'
-
 type Props = {
 	content: string
 }
 
 const PostBody = ({ content }: Props) => {
 	return (
-		<div className="max-w-2xl mx-auto">
-			<div
-				className={markdownStyles['markdown']}
-				dangerouslySetInnerHTML={{ __html: content }}
-			/>
-		</div>
+		<article
+			className="prose dark:prose-dark max-w-none w-full flex-1"
+			dangerouslySetInnerHTML={{ __html: content }}
+		/>
 	)
 }
 

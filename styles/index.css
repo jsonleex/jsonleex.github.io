@@ -13,3 +13,8 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+
+.sticky-header {
+	@apply sticky top-0;
+	backdrop-filter: saturate(180%) blur(20px);
+}

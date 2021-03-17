@@ -1,9 +1,31 @@
 import Head from 'next/head'
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
-const Meta = () => {
+type Props = {
+	type?: string
+	date?: string
+
+	title?: string
+	image?: string
+	description?: string
+}
+
+const Meta = ({ ...customMeta }: Props) => {
+	const meta = {
+		title: 'jsonleex - 程序员，笔记，博客',
+		description: '前端工程师，Node.js，Vue.js，Koa2，Next.js',
+		image: '',
+		type: 'website',
+		...customMeta,
+	}
+
 	return (
 		<Head>
+			<title>{meta.title}</title>
+			<meta name="robots" content="follow, index" />
+			<meta content={meta.description} name="description" />
+			{meta.date && (
+				<meta property="article:published_time" content={meta.date} />
+			)}
 			<link
 				rel="apple-touch-icon"
 				sizes="180x180"
@@ -32,11 +54,11 @@ const Meta = () => {
 			<meta name="msapplication-config" content="/favicon/browserconfig.xml" />
 			<meta name="theme-color" content="#000" />
 			<link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-			<meta
-				name="description"
-				content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-			/>
-			<meta property="og:image" content={HOME_OG_IMAGE_URL} />
+			<meta property="og:type" content={meta.type} />
+			<meta property="og:site_name" content="leex" />
+			<meta property="og:description" content={meta.description} />
+			<meta property="og:title" content={meta.title} />
+			<meta property="og:image" content={meta.image} />
 		</Head>
 	)
 }
