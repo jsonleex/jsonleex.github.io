@@ -11,7 +11,7 @@ const Header = () => {
 	useEffect(() => setMounted(true), [])
 
 	return (
-		<header className="sticky-header bg-white bg-opacity-60 dark:bg-black  dark:bg-opacity-60 p-8 my-0 md:my-8">
+		<header className="sticky-header bg-white bg-opacity-60 dark:bg-black  dark:bg-opacity-60 py-8 md:px-8 my-0 md:my-8">
 			<Container className="flex justify-between items-center">
 				<nav>
 					<NextLink href="/">

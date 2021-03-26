@@ -24,7 +24,7 @@ const Layout = ({ preview, children, ...customMeta }: Props) => {
 
 			<Header />
 
-			<main id="content" className="bg-white dark:bg-black px-8">
+			<main id="content" className="bg-white dark:bg-black">
 				{children}
 			</main>
 
